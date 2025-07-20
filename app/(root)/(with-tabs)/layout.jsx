@@ -1,5 +1,5 @@
-import CreateTaskButton from "@/components/shared/CreateTaskButton";
 import Tabs from "./tabs";
+import CreateTaskButton from "@/components/shared/CreateTaskButton";
 
 const layout = ({ children }) => {
   return (

@@ -1,13 +1,13 @@
 import { Button } from "../ui/button";
-import RoomItem from "./RoomItem";
+import BoardItem from "./BoardItem";
 
-const RoomList = () => {
+const BoardList = () => {
   return (
     <div className="flex flex-col gap-y-1">
-      <RoomItem />
-      <RoomItem />
-      <RoomItem />
-      <RoomItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
+      <BoardItem />
       <Button variant="ghost" size="sm" className="text-md font-medium">
         Show More
       </Button>
@@ -15,4 +15,4 @@ const RoomList = () => {
   );
 };
 
-export default RoomList;
+export default BoardList;

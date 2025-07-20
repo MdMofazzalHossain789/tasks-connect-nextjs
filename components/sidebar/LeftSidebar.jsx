@@ -1,6 +1,7 @@
-import { PackagePlus, PlusCircleIcon } from "lucide-react";
-import RoomList from "./RoomList";
+import { PackagePlus } from "lucide-react";
 import { Button } from "../ui/button";
+import BoardList from "./BoardList";
+import CreateBoard from "../shared/CreateBoard";
 
 const SidebarList = ({ name }) => {
   return (
@@ -12,7 +13,7 @@ const SidebarList = ({ name }) => {
       </div>
 
       {/* Room List */}
-      <RoomList />
+      <BoardList />
     </div>
   );
 };
@@ -24,11 +25,9 @@ const LeftSidebar = () => {
         TasksConnect
       </div>
       <div className="w-full flex flex-col items-center justify-center gap-y-2">
-        <Button size="lg">
-          <PlusCircleIcon /> Create a room
-        </Button>
+        <CreateBoard />
         <Button variant="outline" size="lg">
-          <PackagePlus /> Join a room
+          <PackagePlus /> Join a board
         </Button>
       </div>
 
