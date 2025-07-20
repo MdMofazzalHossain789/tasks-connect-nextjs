@@ -1,6 +1,8 @@
-const MainSection = () => {
+const MainSection = ({ children }) => {
   return (
-    <div className="w-full md:w-7/12 xl:w-6/12 h-full px-4">MainSection</div>
+    <div className="relative bg-foreground/5 w-full md:w-7/12 xl:w-6/12 flex flex-col h-full">
+      {children}
+    </div>
   );
 };
 

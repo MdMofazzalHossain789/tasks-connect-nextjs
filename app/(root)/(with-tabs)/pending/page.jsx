@@ -1,9 +1,9 @@
-import { Button } from "@/components/ui/button";
+import TaskList from "@/components/shared/TaskList";
 
 const page = () => {
   return (
     <div>
-      <Button>Click me</Button>
+      <TaskList />
     </div>
   );
 };

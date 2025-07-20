@@ -1,4 +1,4 @@
-import Button from "../shared/Button";
+import { Button } from "../ui/button";
 import RoomItem from "./RoomItem";
 
 const RoomList = () => {
@@ -8,7 +8,7 @@ const RoomList = () => {
       <RoomItem />
       <RoomItem />
       <RoomItem />
-      <Button className="py-2 justify-center text-sm text-blue-500 hover:bg-blue-500/5">
+      <Button variant="ghost" size="sm" className="text-md font-medium">
         Show More
       </Button>
     </div>
