@@ -7,7 +7,7 @@ import TasksButton from "@/components/shared/TasksButton";
 
 const TaskList = ({ tasks = [], selectedTasks = [], toggleTask }) => {
   return (
-    <div className="flex flex-col gap-y-2 overflow-y-auto w-full h-full">
+    <div className="flex flex-col gap-y-4 overflow-y-auto w-full h-full">
       {tasks.map((task) => (
         <TaskItem
           key={task.id}

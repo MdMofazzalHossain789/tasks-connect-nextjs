@@ -1,6 +1,7 @@
 import MainSection from "@/components/shared/MainSection";
 import LeftSidebar from "@/components/sidebar/LeftSidebar";
 import RightSidebar from "@/components/sidebar/RightSidebar";
+import Topbar from "./Topbar";
 
 const layout = ({ children }) => {
   return (

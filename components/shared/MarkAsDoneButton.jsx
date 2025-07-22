@@ -21,7 +21,7 @@ const MarkAsDoneButton = ({ selectedTasks }) => {
   };
 
   return (
-    <Button onClick={handleMarkAsDone}>
+    <Button onClick={handleMarkAsDone} className="overflow-hidden">
       <p ref={textRef}>Mark as Done ({selectedTasks.length})</p>
     </Button>
   );
