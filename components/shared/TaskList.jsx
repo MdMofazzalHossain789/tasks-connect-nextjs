@@ -1,33 +1,23 @@
-import TaskItem from "./TaskItem";
+"use client";
 
-const TaskList = () => {
+import { useState } from "react";
+import TaskItem from "./TaskItem";
+import useTaskStore from "@/store/useTaskStore";
+import TasksButton from "@/app/(root)/(with-tabs)/TasksButton";
+
+const TaskList = ({ tasks = [], selectedTasks = [], toggleTask }) => {
   return (
     <div className="flex flex-col gap-y-2 overflow-y-auto w-full h-full">
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
-      <TaskItem />
+      {tasks.map((task) => (
+        <TaskItem
+          key={task.id}
+          id={task.id}
+          title={task.title}
+          description={task.description}
+          isSelected={selectedTasks.includes(task.id)}
+          onToggle={toggleTask}
+        />
+      ))}
     </div>
   );
 };

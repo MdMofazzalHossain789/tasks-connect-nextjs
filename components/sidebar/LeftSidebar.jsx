@@ -3,7 +3,7 @@ import { Button } from "../ui/button";
 import BoardList from "./BoardList";
 import CreateBoard from "../shared/CreateBoard";
 
-const SidebarList = ({ name }) => {
+const SidebarList = ({ name, isOwner }) => {
   return (
     <div className="w-full flex flex-col gap-y-2">
       <div className="flex items-center gap-x-4">
@@ -13,7 +13,7 @@ const SidebarList = ({ name }) => {
       </div>
 
       {/* Room List */}
-      <BoardList />
+      <BoardList isOwner={isOwner} />
     </div>
   );
 };
@@ -31,8 +31,8 @@ const LeftSidebar = () => {
         </Button>
       </div>
 
-      <SidebarList name="Your Rooms" />
-      <SidebarList name="Joined Rooms" />
+      <SidebarList name="Your Rooms" isOwner={true}/>
+      <SidebarList name="Joined Rooms" isOwner={false} />
     </div>
   );
 };

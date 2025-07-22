@@ -10,8 +10,8 @@ import { Button } from "../ui/button";
 
 const CreateTaskButton = () => {
   return (
-    <div className="fixed left-[70%] bottom-10 md:left-[85%] xl:left-[60%] p-4">
-      <div>
+    <div className="p-4 mr-10">
+      <div className="mb-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button className="rounded-full border-1 w-16 h-16" size={"lg"}>
@@ -19,11 +19,11 @@ const CreateTaskButton = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-transparent border-0 shadow-none flex flex-col gap-y-4 py-4">
-            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-[999px] shadow-md border-1">
-              Add new task
+            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-lg shadow-md border-1">
+              Add Single Task
             </DropdownMenuItem>
-            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-[999px] shadow-md border-1">
-              Create a board
+            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-lg shadow-md border-1">
+              Add Multi Tasks
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>

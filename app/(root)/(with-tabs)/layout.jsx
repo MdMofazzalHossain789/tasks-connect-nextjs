@@ -1,5 +1,8 @@
+import { Button } from "@/components/ui/button";
 import Tabs from "./tabs";
 import CreateTaskButton from "@/components/shared/CreateTaskButton";
+import MarkAsDoneButton from "./MarkAsDoneButton";
+import TasksButton from "./TasksButton";
 
 const layout = ({ children }) => {
   return (
@@ -8,7 +11,6 @@ const layout = ({ children }) => {
       <div className="w-full flex flex-col overflow-y-auto px-4 pt-[90px]">
         {children}
       </div>
-      <CreateTaskButton />
     </>
   );
 };
