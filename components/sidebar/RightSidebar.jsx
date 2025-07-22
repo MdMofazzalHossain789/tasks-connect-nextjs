@@ -1,3 +1,4 @@
+import { ModeToggle } from "../shared/toggle-theme";
 import { Button } from "../ui/button";
 
 const RightSidebar = () => {
@@ -16,6 +17,7 @@ const RightSidebar = () => {
           <Button variant="ghost">Profile</Button>
           <Button variant="ghost">Notifications</Button>
           <Button variant="ghost">Settings</Button>
+          <ModeToggle />
           <Button variant="destructive">Log Out</Button>
         </div>
       </div>

@@ -1,3 +1,5 @@
+"use client";
+
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -7,8 +9,13 @@ import {
 
 import { PlusIcon } from "lucide-react";
 import { Button } from "../ui/button";
+import { useState } from "react";
+
+import CreateNewTaskModal from "./CreateNewTaskModal";
 
 const CreateTaskButton = () => {
+  const [openDialog, setOpenDialog] = useState(false);
+
   return (
     <div className="p-4 mr-10">
       <div className="mb-4">
@@ -19,15 +26,22 @@ const CreateTaskButton = () => {
             </Button>
           </DropdownMenuTrigger>
           <DropdownMenuContent className="bg-transparent border-0 shadow-none flex flex-col gap-y-4 py-4">
-            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-lg shadow-md border-1">
+            <DropdownMenuItem
+              className="px-4 py-2 bg-foreground text-background hover:bg-foreground/95 text-xl rounded-lg shadow-md border-1"
+              onClick={() => setOpenDialog(true)}
+            >
               Add Single Task
             </DropdownMenuItem>
-            <DropdownMenuItem className="px-4 py-2 bg-white text-xl rounded-lg shadow-md border-1">
+            <DropdownMenuItem className="px-4 py-2 bg-foreground text-background hover:bg-foreground/95 text-xl rounded-lg shadow-md border-1">
               Add Multi Tasks
             </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
+      <CreateNewTaskModal
+        openDialog={openDialog}
+        setOpenDialog={setOpenDialog}
+      />
     </div>
   );
 };

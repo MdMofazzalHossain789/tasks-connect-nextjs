@@ -3,7 +3,7 @@
 import { useState } from "react";
 import TaskItem from "./TaskItem";
 import useTaskStore from "@/store/useTaskStore";
-import TasksButton from "@/app/(root)/(with-tabs)/TasksButton";
+import TasksButton from "@/components/shared/TasksButton";
 
 const TaskList = ({ tasks = [], selectedTasks = [], toggleTask }) => {
   return (

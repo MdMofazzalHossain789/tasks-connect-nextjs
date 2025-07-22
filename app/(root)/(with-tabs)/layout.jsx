@@ -1,8 +1,8 @@
 import { Button } from "@/components/ui/button";
 import Tabs from "./tabs";
 import CreateTaskButton from "@/components/shared/CreateTaskButton";
-import MarkAsDoneButton from "./MarkAsDoneButton";
-import TasksButton from "./TasksButton";
+import MarkAsDoneButton from "../../../components/shared/MarkAsDoneButton";
+import TasksButton from "../../../components/shared/TasksButton";
 
 const layout = ({ children }) => {
   return (

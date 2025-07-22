@@ -8,7 +8,7 @@ const TaskItem = ({ id, title, description, isSelected, onToggle }) => {
     <div className="flex flex-col gap-6">
       <Label
         htmlFor={id}
-        className="bg-white hover:bg-zinc-50 flex items-center gap-3 rounded-lg border-2 p-3 has-[[aria-checked=true]]:border-green-600 has-[[aria-checked=true]]:bg-green-50 dark:has-[[aria-checked=true]]:border-green-900 dark:has-[[aria-checked=true]]:bg-green-950 cursor-pointer transition duration-300"
+        className="bg-background dark:bg-zinc-500/20 dark:border-zinc-100/30 hover:bg-green-50 dark:hover:bg-green-950/50 flex items-center gap-3 rounded-lg border-2 p-3 has-[[aria-checked=true]]:border-green-600 has-[[aria-checked=true]]:bg-green-50 dark:has-[[aria-checked=true]]:border-green-900 dark:has-[[aria-checked=true]]:bg-green-950 cursor-pointer transition duration-300"
       >
         <Checkbox
           id={id}

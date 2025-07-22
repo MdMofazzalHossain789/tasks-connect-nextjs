@@ -9,7 +9,7 @@ const TabItem = ({ children, isActive, url }) => {
     <Link
       href={url}
       className={`py-4 flex items-center justify-center w-full transition duration-300 ${
-        isActive ? "text-white font-semibold" : "text-zinc-800"
+        isActive ? " font-semibold text-background" : "text-foreground"
       }`}
     >
       {children}
@@ -31,7 +31,7 @@ const Tabs = () => {
 
   return (
     <div className="absolute left-0 top-0 flex gap-x-4 w-full px-4 py-4 justify-center">
-      <div className="flex items-center gap-x-4 relative w-full rounded-lg overflow-hidden border-1 bg-white shadow-md">
+      <div className="flex items-center gap-x-4 relative w-full rounded-lg overflow-hidden border-1 bg-background dark:bg-zinc-700 shadow-md">
         <div className="relative z-1 flex items-center justify-between w-full">
           <TabItem isActive={pathname === "/pending"} url="/pending">
             Pending
@@ -45,7 +45,7 @@ const Tabs = () => {
         </div>
         <div
           className={cn(
-            "inset-0 absolute bg-zinc-900 border-6 border-white w-1/3 rounded-xl transition-all duration-300"
+            "inset-0 absolute bg-foreground border-6 border-foreground w-1/3 rounded-xl transition-all duration-300"
           )}
           style={{
             transform: `translateX(${capsule})`,
