@@ -1,7 +1,5 @@
-"use client";
+import TaskItem from "@/components/shared/TaskItem";
 import TaskList from "@/components/shared/TaskList";
-import React, { useState } from "react";
-import TasksButton from "../../../../components/shared/TasksButton";
 
 const dummyTasks = [
   {
@@ -71,37 +69,17 @@ const dummyTasks = [
   },
 ];
 
-const PendingTasksPage = () => {
-  const [selectedTasks, setSelectedTasks] = useState([]);
-  const toggleTask = (id) => {
-    setSelectedTasks((prevSelectedTasks) =>
-      prevSelectedTasks.includes(id)
-        ? prevSelectedTasks.filter((taskId) => taskId !== id)
-        : [...prevSelectedTasks, id]
-    );
-  };
-
-  console.log(selectedTasks);
-
+const page = () => {
   return (
-    <>
+    <div>
       <TaskList
+        missed={true}
         tasks={dummyTasks}
-        toggleTask={toggleTask}
-        selectedTasks={selectedTasks}
+        // toggleTask={toggleTask}
+        // selectedTasks={selectedTasks}
       />
-      <div className="fixed bottom-0 left-0 w-full">
-        <div className="relative w-full">
-          <div className="relative w-full left-0 xl:ml-[25%] md:ml-[41.667%] md:w-[58.33%] xl:w-[50%] 2xl:ml-[30.4%] 2xl:w-[39.2%] text-end max-w-[1300px] px-4 pb-10">
-            <TasksButton
-              selectedTasks={selectedTasks}
-              toggleTask={toggleTask}
-            />
-          </div>
-        </div>
-      </div>
-    </>
+    </div>
   );
 };
 
-export default PendingTasksPage;
+export default page;

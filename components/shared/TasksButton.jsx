@@ -65,12 +65,18 @@ const TasksButton = ({ selectedTasks }) => {
 
   return (
     <>
-      <div className="absolute bottom-18 right-4" ref={createTaskRef}>
+      <div
+        className="absolute bottom-[150px] md:bottom-18 right-4"
+        ref={createTaskRef}
+      >
         <CreateTaskButton />
       </div>
 
       {showDoneButton && (
-        <div className="absolute bottom-8 left-4 right-4" ref={markAsDoneRef}>
+        <div
+          className="absolute bottom-[90px] md:bottom-8 left-4 right-4"
+          ref={markAsDoneRef}
+        >
           <MarkAsDoneButton selectedTasks={selectedTasks} />
         </div>
       )}

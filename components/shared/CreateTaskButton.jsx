@@ -25,7 +25,11 @@ const CreateTaskButton = () => {
               <PlusIcon className="text-2xl" />
             </Button>
           </DropdownMenuTrigger>
-          <DropdownMenuContent className="bg-transparent border-0 shadow-none flex flex-col gap-y-4 py-4">
+          <DropdownMenuContent
+            className="bg-transparent border-0 shadow-none flex flex-col gap-y-4 py-4"
+            side="top"
+            align="end"
+          >
             <DropdownMenuItem
               className="px-4 py-2 bg-foreground text-background hover:bg-foreground/95 text-xl rounded-lg shadow-md border-1"
               onClick={() => setOpenDialog(true)}

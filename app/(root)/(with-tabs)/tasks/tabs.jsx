@@ -1,5 +1,6 @@
 "use client";
 
+import Topbar from "@/components/shared/Topbar";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -29,17 +30,22 @@ const Tabs = () => {
     capsule = "0%";
   }
 
+  console.log(pathname.includes("pending"));
+
   return (
-    <div className="absolute left-0 top-0 flex gap-x-4 w-full px-4 py-4 justify-center">
+    <div className="absolute left-0 top-[73px] flex gap-x-4 w-full px-4 py-4 justify-center flex-col">
       <div className="flex items-center gap-x-4 relative w-full rounded-lg overflow-hidden border-1 bg-background dark:bg-zinc-700 shadow-md">
         <div className="relative z-1 flex items-center justify-between w-full">
-          <TabItem isActive={pathname === "/pending"} url="/pending">
+          <TabItem isActive={pathname.includes("pending")} url="/tasks/pending">
             Pending
           </TabItem>
-          <TabItem isActive={pathname === "/missed"} url="/missed">
+          <TabItem isActive={pathname.includes("missed")} url="/tasks/missed">
             Missed
           </TabItem>
-          <TabItem isActive={pathname === "/completed"} url="/completed">
+          <TabItem
+            isActive={pathname.includes("completed")}
+            url="/tasks/completed"
+          >
             Completed
           </TabItem>
         </div>

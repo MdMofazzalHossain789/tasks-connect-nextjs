@@ -5,6 +5,7 @@ import {
   DialogDescription,
   DialogFooter,
   DialogHeader,
+  DialogOverlay,
   DialogTitle,
 } from "../ui/dialog";
 import { Label } from "../ui/label";
@@ -30,7 +31,7 @@ const CreateNewTaskModal = ({ openDialog, setOpenDialog }) => {
   return (
     <Dialog open={openDialog} onOpenChange={setOpenDialog}>
       <form>
-        <DialogContent className="">
+        <DialogContent>
           <DialogHeader>
             <DialogTitle>Add New Task</DialogTitle>
             <DialogDescription>
