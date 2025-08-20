@@ -17,8 +17,6 @@ const TaskItem = ({
   const Wrapper = onToggle ? Label : "div";
   const Toggle = onToggle ? Checkbox : "div";
 
-  console.log("Completed", completed);
-
   return (
     <div className="flex flex-col gap-6">
       <Wrapper

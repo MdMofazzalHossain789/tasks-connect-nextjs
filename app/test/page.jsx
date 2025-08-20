@@ -1,65 +1,75 @@
 "use client";
-import { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
 
-const AdvancedAnimatedCheckbox = () => {
-  const [checked, setChecked] = useState(false);
-  const tickRef = useRef(null);
-  const boxRef = useRef(null);
+import useLocalStorage from "@/hooks/useLocalStorage";
+import { useState } from "react";
 
-  useEffect(() => {
-    // Animate tick draw
-    gsap.to(tickRef.current, {
-      strokeDashoffset: checked ? 0 : 20,
-      duration: 0.4,
-      ease: "power2.out",
-    });
+export default function TodoApp() {
+  const [todos, setTodos] = useLocalStorage("todos", []);
+  const [input, setInput] = useState("");
 
-    // Optional bounce on box
-    gsap.fromTo(
-      boxRef.current,
-      { scale: 0.9 },
-      { scale: 1, duration: 0.2, ease: "back.out(1.7)" }
+  // CREATE
+  const addTodo = () => {
+    if (!input.trim()) return;
+    const newTodos = [...todos, { id: Date.now(), text: input }];
+    setTodos(newTodos);
+    setInput("");
+  };
+
+  // UPDATE
+  const updateTodo = (id, newText) => {
+    const newTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, text: newText } : todo
     );
-  }, [checked]);
+    setTodos(newTodos);
+  };
+
+  // DELETE
+  const deleteTodo = (id) => {
+    const newTodos = todos.filter((todo) => todo.id !== id);
+    setTodos(newTodos);
+  };
 
   return (
-    <div
-      className="inline-block cursor-pointer"
-      onClick={() => setChecked((prev) => !prev)}
-    >
-      <svg
-        ref={boxRef}
-        viewBox="0 0 24 24"
-        width="40"
-        height="40"
-        className="transition-all"
-      >
-        {/* Box outline */}
-        <rect
-          x="2"
-          y="2"
-          width="20"
-          height="20"
-          rx="5"
-          fill={checked ? "#4ade80" : "#fff"} // green on check
-          stroke="#000"
-          strokeWidth="2"
-        />
+    <div className="p-4 max-w-md mx-auto">
+      <h1 className="text-xl font-bold mb-4">Todo App (LocalStorage)</h1>
 
-        {/* Tick mark */}
-        <path
-          ref={tickRef}
-          d="M6 12l4 4 8-8"
-          stroke="#000"
-          strokeWidth="2"
-          fill="none"
-          strokeDasharray="20"
-          strokeDashoffset="20"
+      <div className="flex gap-2 mb-4">
+        <input
+          type="text"
+          value={input}
+          onChange={(e) => setInput(e.target.value)}
+          placeholder="Add a todo"
+          className="border p-2 rounded w-full"
         />
-      </svg>
+        <button
+          onClick={addTodo}
+          className="bg-blue-500 text-white px-4 py-2 rounded"
+        >
+          Add
+        </button>
+      </div>
+
+      <ul className="space-y-2">
+        {todos.map((todo) => (
+          <li
+            key={todo.id}
+            className="flex justify-between items-center border p-2 rounded"
+          >
+            <input
+              type="text"
+              value={todo.text}
+              onChange={(e) => updateTodo(todo.id, e.target.value)}
+              className="border-none outline-none flex-1"
+            />
+            <button
+              onClick={() => deleteTodo(todo.id)}
+              className="bg-red-500 text-white px-2 py-1 rounded"
+            >
+              X
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-};
-
-export default AdvancedAnimatedCheckbox;
+}

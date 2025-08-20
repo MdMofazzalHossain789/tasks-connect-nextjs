@@ -1,7 +1,7 @@
-import { redirect } from 'next/navigation'
+import { redirect } from "next/navigation";
 
 const page = () => {
-  redirect("/pending")
-}
+  redirect("/tasks/pending");
+};
 
-export default page
+export default page;
