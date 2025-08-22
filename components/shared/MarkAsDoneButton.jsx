@@ -1,11 +1,15 @@
 "use client";
 import { Button } from "@/components/ui/button";
-import useTaskStore from "@/store/useTaskStore";
+import useLocalStorageSWR from "@/hooks/useLocalStorage";
 import gsap from "gsap";
 import React, { useEffect, useRef } from "react";
 
 const MarkAsDoneButton = ({ selectedTasks }) => {
+  const { value: tasks, setValue: setTasks } = useLocalStorageSWR("tasks", []);
+
   const textRef = useRef(null);
+
+  console.log(tasks);
 
   // Animate Create Task button on mount
   useEffect(() => {
@@ -17,7 +21,13 @@ const MarkAsDoneButton = ({ selectedTasks }) => {
   }, []);
 
   const handleMarkAsDone = () => {
-    alert(JSON.stringify(selectedTasks));
+    const updatedTasks = tasks.map((task) =>
+      selectedTasks.includes(task.id)
+        ? { ...task, isCompleted: true, completedAt: new Date() }
+        : task
+    );
+
+    setTasks(updatedTasks);
   };
 
   return (

@@ -1,9 +1,6 @@
 "use client";
 
-import { useState } from "react";
 import TaskItem from "./TaskItem";
-import useTaskStore from "@/store/useTaskStore";
-import TasksButton from "@/components/shared/TasksButton";
 
 const TaskList = ({
   tasks = [],
@@ -20,8 +17,7 @@ const TaskList = ({
           missed={missed}
           key={task.id}
           id={task.id}
-          title={task.title}
-          description={task.description}
+          task={task}
           isSelected={selectedTasks.includes(task.id)}
           onToggle={toggleTask}
         />

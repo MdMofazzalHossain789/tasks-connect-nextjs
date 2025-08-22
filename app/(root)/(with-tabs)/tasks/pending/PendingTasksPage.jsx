@@ -3,76 +3,13 @@ import TaskList from "@/components/shared/TaskList";
 import React, { useState } from "react";
 import TasksButton from "../../../../../components/shared/TasksButton";
 import BottomSection from "@/components/shared/BottomSection";
-
-const dummyTasks = [
-  {
-    id: "task-1",
-    title: "Enable notifications",
-    description: "You can enable or disable notifications at any time.",
-  },
-  {
-    id: "task-2",
-    title: "Complete profile setup",
-    description: "Add your avatar and fill in your details.",
-  },
-  {
-    id: "task-3",
-    title: "Connect to GitHub",
-    description: "Integrate your GitHub account with one click.",
-  },
-  {
-    id: "task-4",
-    title: "Start your first project",
-    description: "Create your first task or project to get started.",
-  },
-  {
-    id: "task-14",
-    title: "Enable notifications",
-    description: "You can enable or disable notifications at any time.",
-  },
-  {
-    id: "task-25",
-    title: "Complete profile setup",
-    description: "Add your avatar and fill in your details.",
-  },
-  {
-    id: "task-35",
-    title: "Connect to GitHub",
-    description: "Integrate your GitHub account with one click.",
-  },
-  {
-    id: "task-45",
-    title: "Start your first project",
-    description: "Create your first task or project to get started.",
-  },
-  {
-    id: "task-41",
-    title: "Start your first project",
-    description: "Create your first task or project to get started.",
-  },
-  {
-    id: "task-144",
-    title: "Enable notifications",
-    description: "You can enable or disable notifications at any time.",
-  },
-  {
-    id: "task-254",
-    title: "Complete profile setup",
-    description: "Add your avatar and fill in your details.",
-  },
-  {
-    id: "task-356",
-    title: "Connect to GitHub",
-    description: "Integrate your GitHub account with one click.",
-  },
-  {
-    id: "task-458",
-    title: "Start your first project",
-    description: "Create your first task or project to get started.",
-  },
-];
+import useTasks from "@/hooks/useTasks";
+import useLocalStorage from "@/hooks/useLocalStorage";
+import useLocalStorageSWR from "@/hooks/useLocalStorage";
 
 const PendingTasksPage = () => {
+  // const { value: tasks, setValue: setTasks } = useLocalStorageSWR("tasks", []);
+  const { value: tasks, setValue: setTasks } = useLocalStorageSWR("tasks", []);
   const [selectedTasks, setSelectedTasks] = useState([]);
   const toggleTask = (id) => {
     setSelectedTasks((prevSelectedTasks) =>
@@ -82,12 +19,26 @@ const PendingTasksPage = () => {
     );
   };
 
-  console.log(selectedTasks);
+  const missed = tasks.map((task) => {
+    if (new Date(task.datetime) <= new Date() && !task.isCompleted) {
+      const missed = { ...task, isMissed: true };
+      return missed;
+    }
+  });
+
+  console.log("Missed Tasks - ", missed);
+
+  const pendingTasks = tasks.filter(
+    (task) => !task.isCompleted && new Date(task.datetime) > new Date()
+  );
+  const sotedTasks = pendingTasks.sort(
+    (a, b) => new Date(a.datetime) - new Date(b.datetime)
+  );
 
   return (
     <>
       <TaskList
-        tasks={dummyTasks}
+        tasks={sotedTasks}
         toggleTask={toggleTask}
         selectedTasks={selectedTasks}
       />

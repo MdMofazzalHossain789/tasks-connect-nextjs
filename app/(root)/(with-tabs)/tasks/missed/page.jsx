@@ -1,5 +1,6 @@
 import TaskItem from "@/components/shared/TaskItem";
 import TaskList from "@/components/shared/TaskList";
+import MissedTasksPage from "./MissedTasksPage";
 
 const dummyTasks = [
   {
@@ -72,12 +73,7 @@ const dummyTasks = [
 const page = () => {
   return (
     <div>
-      <TaskList
-        missed={true}
-        tasks={dummyTasks}
-        // toggleTask={toggleTask}
-        // selectedTasks={selectedTasks}
-      />
+      <MissedTasksPage />
     </div>
   );
 };

@@ -17,8 +17,8 @@ const CreateTaskButton = () => {
   const [openDialog, setOpenDialog] = useState(false);
 
   return (
-    <div className="p-4 mr-10">
-      <div className="mb-4">
+    <div className="p-4 md:mr-10">
+      <div className="md:mb-4">
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
             <Button className="rounded-full border-1 w-16 h-16" size={"lg"}>

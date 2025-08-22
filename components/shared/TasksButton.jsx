@@ -3,6 +3,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { gsap } from "gsap";
 import CreateTaskButton from "@/components/shared/CreateTaskButton";
 import MarkAsDoneButton from "./MarkAsDoneButton";
+import { cn } from "@/lib/utils";
 
 const TasksButton = ({ selectedTasks }) => {
   const createTaskRef = useRef(null);
@@ -66,7 +67,10 @@ const TasksButton = ({ selectedTasks }) => {
   return (
     <>
       <div
-        className="absolute bottom-[150px] md:bottom-18 right-4"
+        className={cn(
+          "absolute md:bottom-18 right-4",
+          showDoneButton ? "bottom-[180px]" : "bottom-[90px]"
+        )}
         ref={createTaskRef}
       >
         <CreateTaskButton />
@@ -77,7 +81,10 @@ const TasksButton = ({ selectedTasks }) => {
           className="absolute bottom-[90px] md:bottom-8 left-4 right-4"
           ref={markAsDoneRef}
         >
-          <MarkAsDoneButton selectedTasks={selectedTasks} />
+          <MarkAsDoneButton
+            selectedTasks={selectedTasks}
+            setShowDoneButton={setShowDoneButton}
+          />
         </div>
       )}
     </>
