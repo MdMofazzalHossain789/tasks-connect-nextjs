@@ -27,7 +27,7 @@ export async function POST(req) {
         firstname: first_name,
         lastname: last_name,
         email: email_addresses[0].email_address || "",
-        imageUrl: image_url,
+        profile: image_url,
       };
 
       const newUser = createUser(user);
