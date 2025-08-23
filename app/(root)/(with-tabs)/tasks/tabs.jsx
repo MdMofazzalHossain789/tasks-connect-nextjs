@@ -9,7 +9,7 @@ const TabItem = ({ children, isActive, url }) => {
   return (
     <Link
       href={url}
-      className={`py-4 flex items-center justify-center w-full transition duration-300 ${
+      className={`py-3 flex items-center justify-center w-full transition duration-300 ${
         isActive ? " font-semibold text-background" : "text-foreground"
       }`}
     >

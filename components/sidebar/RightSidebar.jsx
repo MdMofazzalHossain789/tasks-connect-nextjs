@@ -1,3 +1,4 @@
+import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import { ModeToggle } from "../shared/toggle-theme";
 import { Button } from "../ui/button";
 
@@ -18,7 +19,11 @@ const RightSidebar = () => {
           <Button variant="ghost">Notifications</Button>
           <Button variant="ghost">Settings</Button>
           <ModeToggle />
-          <Button variant="destructive">Log Out</Button>
+          <SignedIn>
+            <SignOutButton>
+              <Button variant="destructive">Log Out</Button>
+            </SignOutButton>
+          </SignedIn>
         </div>
       </div>
     </div>

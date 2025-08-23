@@ -5,6 +5,7 @@ import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
 import { usePathname } from "next/navigation";
 import RightSheet from "../sidebar/RightSheet";
+import { SignedIn, SignedOut, SignInButton } from "@clerk/nextjs";
 
 const Topbar = ({ backlink }) => {
   const pathname = usePathname();
@@ -22,7 +23,12 @@ const Topbar = ({ backlink }) => {
         <p>{title}</p>
       </div>
       <div>
-        <RightSheet />
+        <SignedIn>
+          <RightSheet />
+        </SignedIn>
+        <SignedOut>
+          <SignInButton />
+        </SignedOut>
       </div>
     </div>
   );
