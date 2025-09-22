@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "lucide-react";
+import { Menu, UserCircle, UserIcon } from "lucide-react";
 import Link from "next/link";
 import React, { useEffect, useState } from "react";
 import { Button } from "../ui/button";
@@ -27,7 +27,10 @@ const Topbar = ({ backlink }) => {
           <RightSheet />
         </SignedIn>
         <SignedOut>
-          <SignInButton />
+          <Button className="bg-blue-500 hover:bg-blue-600 text-white font-semibold">
+            <UserCircle className="text-xl" />
+            <div>Sign In</div>
+          </Button>
         </SignedOut>
       </div>
     </div>

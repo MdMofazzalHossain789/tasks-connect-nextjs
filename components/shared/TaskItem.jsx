@@ -3,7 +3,7 @@
 import { Checkbox } from "@/components/ui/checkbox";
 import { Label } from "@/components/ui/label";
 import { cn } from "@/lib/utils";
-import { Check, CheckCheck, X } from "lucide-react";
+import { Calendar, Check, CheckCheck, Clock, X } from "lucide-react";
 import { format } from "timeago.js";
 
 const TaskItem = ({ completed, missed, task, onToggle, isSelected }) => {
@@ -41,7 +41,8 @@ const TaskItem = ({ completed, missed, task, onToggle, isSelected }) => {
         )}
       >
         <div className="grid gap-1.5 font-normal">
-          <p className="text-xs">
+          <p className="text-xs flex items-center gap-x-2">
+            <Clock className="w-4" />
             {completed ? (
               <>Completed at </>
             ) : missed ? (
@@ -50,7 +51,7 @@ const TaskItem = ({ completed, missed, task, onToggle, isSelected }) => {
               format(datetime)
             )}
           </p>
-          <p className="text-md leading-none font-medium">{title}</p>
+          <h1 className="text-lg leading-none font-medium">{title}</h1>
           <p className="text-muted-foreground text-sm">{description}</p>
         </div>
       </Wrapper>

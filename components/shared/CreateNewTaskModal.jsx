@@ -189,7 +189,7 @@ export default function CreateNewTaskModal({ openDialog, setOpenDialog }) {
           </div>
 
           <DialogFooter className="mt-6">
-            <Button type="submit">Save changes</Button>
+            <Button type="submit">Add Task</Button>
           </DialogFooter>
         </form>
       </DialogContent>

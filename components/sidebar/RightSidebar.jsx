@@ -1,6 +1,8 @@
 import { SignedIn, SignOutButton } from "@clerk/nextjs";
 import { ModeToggle } from "../shared/toggle-theme";
 import { Button } from "../ui/button";
+import Image from "next/image";
+import { Check } from "lucide-react";
 
 const RightSidebar = () => {
   return (
@@ -8,7 +10,14 @@ const RightSidebar = () => {
       <div className="flex flex-col gap-y-2 items-center">
         {/* Avatar */}
         <div className="mt-10">
-          <div className="w-[200px] h-[200px] bg-gray-500 rounded-full"></div>
+          <div className="w-[200px] h-[200px] bg-gray-500 rounded-full relative overflow-hidden ring-4 shadow-xl dark:shadow-white/20">
+            <Image
+              src={"/mofazzal.png"}
+              alt="Avatar"
+              fill
+              className="object-cover"
+            />
+          </div>
         </div>
         <div className="flex flex-col gap-y-2 items-center">
           <h1 className="text-2xl font-semibold">Md Mofazzal Hossain</h1>

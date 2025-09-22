@@ -4,6 +4,7 @@ import BoardList from "./BoardList";
 import CreateBoard from "../shared/CreateBoard";
 import SidebarList from "./SidebarList";
 import { SignedIn, SignedOut } from "@clerk/nextjs";
+import Image from "next/image";
 
 const LeftSidebar = () => {
   return (
@@ -22,9 +23,13 @@ const LeftSidebar = () => {
         <SidebarList name="Joined Rooms" isOwner={false} />
       </SignedIn>
       <SignedOut>
-        <div className="w-full bg-gray-800 h-full max-h-1/2 rounded-lg text-center flex items-center justify-center text-2xl px-4 mt-4">
-          Akhane Biggapon er moto akta chobi dekhano hobe jekhane log in korle
-          ki ki feature ashbe seta highlight kora hobe
+        <div className="w-full bg-gray-800 h-full max-h-1/2 rounded-lg text-center flex items-center justify-center text-2xl px-4 mt-4 relative overflow-hidden">
+          <Image
+            src={"/ad.png"}
+            alt="Clerk Logo"
+            fill
+            className="object-cover"
+          />
         </div>
       </SignedOut>
     </div>
