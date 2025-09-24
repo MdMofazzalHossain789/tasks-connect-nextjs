@@ -59,32 +59,36 @@ const TaskItem = ({ completed, missed, task, onToggle, isSelected }) => {
       >
         <div className="w-full font-normal">
           <div className="flex items-center gap-x-2 w-full justify-between">
-            <p className="text-xs flex items-center gap-x-2">
-              <Clock className="w-4" />
-              {completed ? (
-                <>Completed at </>
-              ) : missed ? (
-                <>Missed At </>
-              ) : (
-                format(datetime)
-              )}
-            </p>
+            <div className="flex items-center gap-x-4">
+              <div className="flex items-center gap-x-2">
+                <Calendar className="w-4 h-4" />
+                <p className="text-xs">
+                  {moment(datetime).format("DD MMM YYYY")}
+                </p>
+              </div>
+              <p className="text-xs flex items-center gap-x-2">
+                <Clock className="w-4" />
+                {completed ? (
+                  <>Completed at </>
+                ) : missed ? (
+                  <>Missed At </>
+                ) : (
+                  format(datetime)
+                )}
+              </p>
+            </div>
             <div className="flex items-center gap-x-2 text-muted-foreground">
               <LayoutList className="w-4 h-4" />
               <p>Board Name</p>
             </div>
           </div>
-          <div className="py-2">
+          <div className="pt-2 pb-3">
             <h1 className="text-lg leading-none font-medium">{title}</h1>
             <p className="text-muted-foreground text-sm">{description}</p>
           </div>
 
           {/* Task Bottom */}
           <div className="flex items-center justify-between gap-x-2 text-xs w-full">
-            <p className="text-muted-foreground">
-              Added on {moment(datetime).format("DD MMM YYYY")}
-            </p>
-
             <div className="shrink-0 flex items-center gap-x-4 relative z-10">
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -94,66 +98,37 @@ const TaskItem = ({ completed, missed, task, onToggle, isSelected }) => {
                   </div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
-                  <h1 className="font-semibold">Seen By 30</h1>
-                  <p className="text-muted">
-                    See All 30 people have viewed this task
-                  </p>
+                  <p>Seen by 20 people</p>
                 </TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div className="flex items-center gap-x-2 hover:bg-black/10 dark:hover:bg-white/10 px-2 py-1 rounded-md">
+                  <div className="flex items-center gap-x-2 text-muted-foreground">
                     <CheckCheck className="w-4 h-4 text-muted-foreground"></CheckCheck>
-                    <div className="flex items-center">
-                      <div className="*:data-[slot=avatar]:ring-background flex *:data-[slot=avatar]:ring-2 *:data-[slot=avatar]:grayscale">
-                        <Avatar className="w-4 h-4">
-                          <AvatarImage
-                            src="https://github.com/shadcn.png"
-                            alt="@shadcn"
-                          />
-                          <AvatarFallback>CN</AvatarFallback>
-                        </Avatar>
-                        <Avatar className="w-4 h-4">
-                          <AvatarImage
-                            src="https://github.com/leerob.png"
-                            alt="@leerob"
-                          />
-                          <AvatarFallback>LR</AvatarFallback>
-                        </Avatar>
-                        <Avatar className="w-4 h-4">
-                          <AvatarImage
-                            src="https://github.com/evilrabbit.png"
-                            alt="@evilrabbit"
-                          />
-                          <AvatarFallback>ER</AvatarFallback>
-                        </Avatar>
-                      </div>
-                      <p className="h-4 min-w-4 rounded-full px-1 font-mono tabular-nums">
-                        20+
-                      </p>
-                    </div>
+                    <p className="font-mono">30</p>
                   </div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
                   <div className="text-md">
-                    <h1 className="font-semibold">Completed By 20</h1>
-                    <p className="text-muted">
-                      See All 20 people completed this task
-                    </p>
+                    <p>Completed by 20 people</p>
                   </div>
                 </TooltipContent>
               </Tooltip>
               <Tooltip>
                 <TooltipTrigger asChild>
-                  <div>
+                  <div className="flex items-center gap-x-2 text-muted-foreground">
                     <MessagesSquare className="w-4 h-4 text-muted-foreground" />
+                    <p className="font-mono">30</p>
                   </div>
                 </TooltipTrigger>
                 <TooltipContent side="bottom">
-                  <p>See Discussions by 20 people</p>
+                  <p>20 discussions</p>
                 </TooltipContent>
               </Tooltip>
             </div>
+            <p className="text-muted-foreground">
+              Added on {moment(datetime).format("DD MMM YYYY")}
+            </p>
           </div>
         </div>
       </Wrapper>
